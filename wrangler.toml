@@ -1,0 +1,10 @@
+[site]
+bucket = "./"  # The directory containing your website
+site_name = "nosafeword" # Change this to your preferred name
+
+[build]
+command = ""  # No build command for static site
+
+[r2_buckets]
+binding = "APP"
+bucket_name = "app"
