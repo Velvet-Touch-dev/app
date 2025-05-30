@@ -10,278 +10,413 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
-  <meta name="theme-color" content="#643085">
+  <meta name="theme-color" content="#B794F6">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <!-- Material Design Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    /* Override styles to ensure dark theme */
-    body {
-      background-color: #1F1A1E;
-      color: #EBE0E4;
-    }
-    
-    .download {
-      background-color: #2D262A !important;
-      color: #EBE0E4 !important;
-    }
-    
-    .download p, .download h2 {
-      color: #EBE0E4 !important;
-      background-color: transparent !important;
-    }
-    
-    .section {
-      background-color: #1F1A1E !important;
-    }
-    
-    .card {
-      background-color: #2D262A !important;
-    }
-  </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="nav-logo">No Safe Word</div>
-    <div class="nav-links">
-      <a href="#screenshots">Screenshots</a>
-      <a href="#features">Features</a>
-      <a href="#download">Download</a>
-      <a href="#faq">FAQ</a>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="material-icons">favorite</span>
+        <span class="logo-text">No Safe Word</span>
+      </div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#screenshots" class="nav-link">Screenshots</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#download" class="nav-link">Download</a>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span class="material-icons">menu</span>
+      </button>
     </div>
-    <button class="mobile-menu-btn">
-      <i class="fas fa-bars"></i>
-    </button>
   </nav>
   
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <button class="mobile-menu-close">
-      <i class="fas fa-times"></i>
-    </button>
-    <a href="#screenshots">Screenshots</a>
-    <a href="#features">Features</a>
-    <a href="#download">Download</a>
-    <a href="#faq">FAQ</a>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-menu-close" aria-label="Close menu">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="#hero" class="mobile-menu-link">
+        <span class="material-icons">home</span>
+        <span>Home</span>
+      </a>
+      <a href="#screenshots" class="mobile-menu-link">
+        <span class="material-icons">photo_library</span>
+        <span>Screenshots</span>
+      </a>
+      <a href="#features" class="mobile-menu-link">
+        <span class="material-icons">star</span>
+        <span>Features</span>
+      </a>
+      <a href="#download" class="mobile-menu-link">
+        <span class="material-icons">download</span>
+        <span>Download</span>
+      </a>
+    </div>
   </div>
   
-  <!-- Overlay for mobile menu -->
-  <div class="overlay"></div>
-  
   <!-- Hero Section -->
-  <section class="hero">
+  <section id="hero" class="hero">
+    <div class="hero-background">
+      <div class="hero-gradient"></div>
+      <div class="hero-pattern"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">No Safe Word</h1>
-        <p class="hero-subtitle" style="color: #F4D9FF; background: transparent;">Your playful companion for unforgettable, intimate adventures.</p>
-        <img src="images/app-preview.webp" alt="No Safe Word App Preview" style="max-width: 180px; border-radius: 24px; box-shadow: 0 6px 16px rgba(0,0,0,0.15);">
-        <a href="#download" class="button" style="padding: 12px 30px; font-size: 1.2rem; background-color: #E0B0FF; color: #4B166D;">Download Now</a>
+        <div class="hero-badge">
+          <span class="material-icons">verified</span>
+          <span>Free & Open Source</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-line">No Safe Word</span>
+          <span class="hero-title-subtitle">Your intimate companion</span>
+        </h1>
+        <p class="hero-description">
+          Discover new dimensions of intimacy with our beautifully designed app featuring random scenes, 
+          custom experiences, and synchronized play for you and your partner.
+        </p>
+        <div class="hero-app-preview">
+          <div class="app-icon">
+            <img src="images/app-preview.webp" alt="No Safe Word App Icon" class="app-icon-image">
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary">
+            <span class="material-icons">download</span>
+            <span>Download Now</span>
+          </a>
+          <a href="#features" class="btn btn-secondary">
+            <span>Learn More</span>
+            <span class="material-icons">arrow_forward</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
   
   <!-- Screenshots Section -->
-  <section id="screenshots" class="section">
+  <section id="screenshots" class="section screenshots-section">
     <div class="container">
-      <h2 class="section-title" style="color: #E0B0FF; margin-bottom: 1rem; font-size: 2.2rem;">App Screenshots</h2>
-      <p class="section-subtitle" style="color: #CCC4CD; margin-bottom: 2.5rem;">Visual elegance meets intimacy. Explore what awaits inside.</p>
-      
-      <div class="screenshot-container">
-        <div class="screenshot-wrapper">
-          <!-- Main -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/main.png" alt="Home Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Femdom Scenes</h3>
-              <p class="screenshot-caption">Explore intense femdom scenes designed to be acted out in the bedroom, fostering deep connection and control.</p>
-            </div>
-          </div>
-          <!-- Custom Scenes (Edit) -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/custom_scenes.png" alt="Custom Scenes Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Custom Scenes</h3>
-              <p class="screenshot-caption">Unleash your creativity by adding your own custom scenes and tailoring experiences to your unique desires.</p>
-            </div>
-          </div>
-          <!-- Positions -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/positions.png" alt="Positions Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Positions Gallery</h3>
-              <p class="screenshot-caption">Explore a variety of positions with an auto-play feature. Customize random duration changes for spontaneous and exciting encounters.</p>
-            </div>
-          </div>
-          <!-- Favorites -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/favourites.png" alt="Favourites Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Favorites Collection</h3>
-              <p class="screenshot-caption">Curate your personal collection of favorite scenes and positions for quick access to your most cherished intimate experiences.</p>
-            </div>
-          </div>
-          <!-- Task List -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/task_list.png" alt="Body Worship Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Task List</h3>
-              <p class="screenshot-caption">Assign tasks and rules to your sub</p>
-            </div>
-          </div>
-          <!-- Plan Your Night -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/plan_your_night.png" alt="Plan Your Night Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Plan Your Night</h3>
-              <p class="screenshot-caption">Plan your night with scenes and positions</p>
-            </div>
-          </div>
-          <!-- Body Worship -->
-          <div class="screenshot">
-            <div class="screenshot-image">
-              <img src="images/body_worship.png" alt="Body Worship Screen">
-            </div>
-            <div class="screenshot-content">
-              <h3 class="screenshot-title">Body Worship</h3>
-              <p class="screenshot-caption">Engage in intimate body worship with auto-play prompts guiding you to adore and cherish your partner's physique.</p>
-            </div>
-          </div>
-
-        </div>
+      <div class="section-header">
+        <span class="section-badge">Screenshots</span>
+        <h2 class="section-title">Beautiful Interface Design</h2>
+        <p class="section-description">
+          Every screen is crafted with care, combining elegant aesthetics with intuitive functionality 
+          for the perfect intimate experience.
+        </p>
       </div>
       
-      <div class="screenshot-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+      <div class="screenshots-container">
+        <div class="screenshot-carousel" id="screenshotCarousel">
+          <!-- Screenshot 1 -->
+          <div class="screenshot-item active">
+            <div class="screenshot-content">
+              <div class="screenshot-info">
+                <span class="screenshot-category">Main Feature</span>
+                <h3 class="screenshot-title">Femdom Scenes</h3>
+                <p class="screenshot-description">
+                  Explore intense femdom scenes designed to be acted out in the bedroom, 
+                  fostering deep connection and control dynamics.
+                </p>
+              </div>
+              <div class="screenshot-image">
+                <div class="image-frame">
+                  <img src="images/main.png" alt="Femdom Scenes Interface">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Screenshot 2 -->
+          <div class="screenshot-item">
+            <div class="screenshot-content">
+              <div class="screenshot-info">
+                <span class="screenshot-category">Customization</span>
+                <h3 class="screenshot-title">Custom Scenes</h3>
+                <p class="screenshot-description">
+                  Unleash your creativity by adding your own custom scenes and 
+                  tailoring experiences to your unique desires and fantasies.
+                </p>
+              </div>
+              <div class="screenshot-image">
+                <div class="image-frame">
+                  <img src="images/custom_scenes.png" alt="Custom Scenes Interface">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Screenshot 3 -->
+          <div class="screenshot-item">
+            <div class="screenshot-content">
+              <div class="screenshot-info">
+                <span class="screenshot-category">Positions</span>
+                <h3 class="screenshot-title">Positions Gallery</h3>
+                <p class="screenshot-description">
+                  Explore a variety of positions with auto-play features and 
+                  customizable random duration changes for spontaneous encounters.
+                </p>
+              </div>
+              <div class="screenshot-image">
+                <div class="image-frame">
+                  <img src="images/positions.png" alt="Positions Gallery Interface">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Screenshot 4 -->
+          <div class="screenshot-item">
+            <div class="screenshot-content">
+              <div class="screenshot-info">
+                <span class="screenshot-category">Personal</span>
+                <h3 class="screenshot-title">Favorites Collection</h3>
+                <p class="screenshot-description">
+                  Curate your personal collection of favorite scenes and positions 
+                  for quick access to your most cherished intimate experiences.
+                </p>
+              </div>
+              <div class="screenshot-image">
+                <div class="image-frame">
+                  <img src="images/favourites.png" alt="Favorites Interface">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="screenshot-navigation">
+          <button class="nav-btn nav-prev" aria-label="Previous screenshot">
+            <span class="material-icons">chevron_left</span>
+          </button>
+          <div class="screenshot-dots">
+            <button class="dot active" data-slide="0"></button>
+            <button class="dot" data-slide="1"></button>
+            <button class="dot" data-slide="2"></button>
+            <button class="dot" data-slide="3"></button>
+          </div>
+          <button class="nav-btn nav-next" aria-label="Next screenshot">
+            <span class="material-icons">chevron_right</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>
   
   <!-- Features Section -->
-  <section id="features" class="section features">
+  <section id="features" class="section features-section">
     <div class="container">
-      <h2 class="section-title">Features</h2>
-      <p class="section-subtitle">Explore the seductive tools that make <strong>No Safe Word</strong> your ultimate partner in intimate domination and discovery.</p>
+      <div class="section-header">
+        <span class="section-badge">Features</span>
+        <h2 class="section-title">Everything You Need</h2>
+        <p class="section-description">
+          Discover the powerful tools that make No Safe Word your ultimate partner 
+          in intimate exploration and connection.
+        </p>
+      </div>
       
       <div class="features-grid">
-        <div class="card feature-card">
+        <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-dice"></i>
+            <span class="material-icons">casino</span>
           </div>
-          <h3 class="feature-title">Random Scene Generator</h3>
-          <p>Ignite spontaneity with diverse, randomly generated scenes, including femdom scenarios perfect for bedroom adventures.</p>
+          <div class="feature-content">
+            <h3 class="feature-title">Random Scene Generator</h3>
+            <p class="feature-description">
+              Ignite spontaneity with diverse, randomly generated scenes, including 
+              femdom scenarios perfect for bedroom adventures.
+            </p>
+          </div>
         </div>
-  
-        <div class="card feature-card">
+        
+        <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-bed"></i>
+            <span class="material-icons">bed</span>
           </div>
-          <h3 class="feature-title">Interactive Positions Gallery</h3>
-          <p>Discover and try new sex positions with our interactive gallery, featuring customizable auto-play with random duration changes for dynamic experiences.</p>
+          <div class="feature-content">
+            <h3 class="feature-title">Interactive Positions</h3>
+            <p class="feature-description">
+              Discover new positions with our interactive gallery, featuring 
+              customizable auto-play and random duration changes.
+            </p>
+          </div>
         </div>
-  
-        <div class="card feature-card">
+        
+        <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-hand-holding-heart"></i>
+            <span class="material-icons">favorite</span>
           </div>
-          <h3 class="feature-title">Body Worship Prompts</h3>
-          <p>Deepen your connection with guided body worship sessions. Auto-play prompts suggest intimate actions to adore your partner.</p>
+          <div class="feature-content">
+            <h3 class="feature-title">Body Worship</h3>
+            <p class="feature-description">
+              Deepen your connection with guided body worship sessions and 
+              auto-play prompts for intimate partner adoration.
+            </p>
+          </div>
         </div>
-  
-        <div class="card feature-card">
+        
+        <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-edit"></i>
+            <span class="material-icons">edit</span>
           </div>
-          <h3 class="feature-title">Custom Scene Creation</h3>
-          <p>Personalize your play. Easily add and manage your own custom scenes, bringing your unique fantasies to life.</p>
+          <div class="feature-content">
+            <h3 class="feature-title">Custom Scenes</h3>
+            <p class="feature-description">
+              Personalize your experience by easily creating and managing 
+              your own custom scenes and intimate scenarios.
+            </p>
+          </div>
         </div>
-  
-        <div class="card feature-card">
+        
+        <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-tasks"></i>
+            <span class="material-icons">checklist</span>
           </div>
-          <h3 class="feature-title">Synced Task List</h3>
-          <p>Stay connected with a shared task list. Manage femdom rules and intimate tasks for you and your partner, all in sync.</p>
+          <div class="feature-content">
+            <h3 class="feature-title">Synced Task List</h3>
+            <p class="feature-description">
+              Stay connected with synchronized task management for intimate 
+              rules and activities between you and your partner.
+            </p>
+          </div>
         </div>
-  
-        <div class="card feature-card">
+        
+        <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-calendar-check"></i>
+            <span class="material-icons">schedule</span>
           </div>
-          <h3 class="feature-title">Plan Your Night</h3>
-          <p>Curate the perfect intimate journey. Arrange scenes and positions in your desired order for a personalized experience.</p>
-        </div>
-  
-        <div class="card feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-star"></i>
+          <div class="feature-content">
+            <h3 class="feature-title">Plan Your Night</h3>
+            <p class="feature-description">
+              Curate the perfect experience by arranging scenes and positions 
+              in your desired order for personalized intimacy.
+            </p>
           </div>
-          <h3 class="feature-title">Favorites Collection</h3>
-          <p>Quickly access your most loved content. Save your favorite scenes and positions in one convenient place.</p>
         </div>
       </div>
     </div>
   </section>
-
   
   <!-- Download Section -->
-  <section id="download" class="download" style="background-color: #2D262A !important; color: #EBE0E4 !important;">
+  <section id="download" class="section download-section">
+    <div class="download-background">
+      <div class="download-gradient"></div>
+      <div class="download-pattern"></div>
+    </div>
     <div class="container">
-      <h2 class="download-title" style="color: #EBE0E4 !important; background-color: transparent !important;">Download No Safe Word</h2>
-      <p style="color: #EBE0E4 !important; background-color: transparent !important;">Get the app now and start exploring new dimensions of intimacy</p>
-      
-      <div class="download-buttons">
-        <a href="/download/NoSafeWord-v1.0.apk" class="button" style="padding: 16px 32px; font-size: 1.3rem; position: relative; overflow: hidden; background-color: #E0B0FF; color: #4B166D;">
-          <span style="position: relative; z-index: 2;"><i class="fas fa-download"></i> Download APK</span>
-          <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(224, 176, 255,0.3), transparent); animation: shine 2s infinite;"></span>
-        </a>
-        <a href="https://github.com/Velvet-Touch-dev/NoSafeWord-Android" class="button button-outlined" style="padding: 16px 32px; font-size: 1.2rem; background-color: rgba(224, 176, 255,0.1); border-color: #E0B0FF; color: #E0B0FF;">
-          <i class="fab fa-github"></i> View Source Code
-        </a>
+      <div class="download-content">
+        <div class="download-info">
+          <span class="download-badge">
+            <span class="material-icons">verified</span>
+            <span>Ready to Download</span>
+          </span>
+          <h2 class="download-title">Get No Safe Word</h2>
+          <p class="download-description">
+            Start your journey of intimate exploration today. Download now and 
+            discover new dimensions of connection with your partner.
+          </p>
+          <div class="download-features">
+            <div class="download-feature">
+              <span class="material-icons">security</span>
+              <span>100% Private & Secure</span>
+            </div>
+            <div class="download-feature">
+              <span class="material-icons">money_off</span>
+              <span>Completely Free</span>
+            </div>
+            <div class="download-feature">
+              <span class="material-icons">code</span>
+              <span>Open Source</span>
+            </div>
+          </div>
+        </div>
+        <div class="download-actions">
+          <a href="/download/NoSafeWord-v1.0.apk" class="btn btn-download">
+            <span class="material-icons">download</span>
+            <span>Download APK</span>
+            <div class="btn-shine"></div>
+          </a>
+          <a href="https://github.com/Velvet-Touch-dev/NoSafeWord-Android" class="btn btn-source">
+            <span class="material-icons">code</span>
+            <span>View Source</span>
+          </a>
+          <div class="download-note">
+            <span class="material-icons">info</span>
+            <span>Requires Android 5.0 or higher</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
   <!-- FAQ Section -->
-  <section id="faq" class="section">
+  <section class="section faq-section">
     <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      
-      <div class="card" style="margin-bottom: var(--md-space-3);">
-        <h3 class="feature-title">Is the app free?</h3>
-        <p>Yes, No Safe Word is completely free and open source. No in-app purchases, no ads.</p>
+      <div class="section-header">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Common Questions</h2>
+        <p class="section-description">
+          Everything you need to know about No Safe Word and how to get started.
+        </p>
       </div>
       
-      <div class="card" style="margin-bottom: var(--md-space-3);">
-        <h3 class="feature-title">How do I install the APK?</h3>
-        <p>Download the APK file, then open it on your Android device. You may need to enable "Install from Unknown Sources" in your device settings.</p>
-      </div>
-      
-      <div class="card" style="margin-bottom: var(--md-space-3);">
-        <h3 class="feature-title">Is my data private?</h3>
-        <p>Absolutely. All data stays on your device unless you choose to enable cloud sync.</p>
-      </div>
-      
-      <div class="card">
-        <h3 class="feature-title">Can I contribute to the app?</h3>
-        <p>Yes! The app is open source. Check out our GitHub repository to contribute code, report bugs, or suggest new features.</p>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" data-faq="0">
+            <span>Is the app completely free?</span>
+            <span class="material-icons">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, No Safe Word is completely free and open source. There are no in-app purchases, 
+            subscriptions, or advertisements. We believe intimate tools should be accessible to everyone.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" data-faq="1">
+            <span>How do I install the APK file?</span>
+            <span class="material-icons">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>Download the APK file and open it on your Android device. You may need to enable 
+            "Install from Unknown Sources" in your device security settings. The app will guide 
+            you through the installation process.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" data-faq="2">
+            <span>Is my data kept private and secure?</span>
+            <span class="material-icons">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. All your data stays on your device by default. We offer optional cloud 
+            sync for convenience, but you have full control over your privacy. We never collect 
+            or sell your personal information.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" data-faq="3">
+            <span>Can I contribute to the app development?</span>
+            <span class="material-icons">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! No Safe Word is open source and we welcome contributions. Visit our GitHub 
+            repository to contribute code, report bugs, suggest features, or help with translations.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -290,14 +425,40 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-links">
-          <a href="#screenshots">Screenshots</a>
-          <a href="#features">Features</a>
-          <a href="#download">Download</a>
-          <a href="#faq">FAQ</a>
+        <div class="footer-main">
+          <div class="footer-brand">
+            <div class="footer-logo">
+            <span class="material-icons">favorite</span>
+            <span class="logo-text">No Safe Word</span>
+            </div>
+            <p class="footer-description">
+              Your companion for intimate exploration and connection. 
+              Free, open source, and designed with privacy in mind.
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4 class="footer-section-title">App</h4>
+              <a href="#screenshots" class="footer-link">Screenshots</a>
+              <a href="#features" class="footer-link">Features</a>
+              <a href="#download" class="footer-link">Download</a>
+            </div>
+            <div class="footer-section">
+              <h4 class="footer-section-title">Support</h4>
+              <a href="#faq" class="footer-link">FAQ</a>
+              <a href="https://github.com/Velvet-Touch-dev/NoSafeWord-Android" class="footer-link">GitHub</a>
+            </div>
+          </div>
         </div>
-        <div class="footer-copyright">
-          &copy; 2025 No Safe Word | All rights reserved
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            <span>&copy; 2025 No Safe Word. All rights reserved.</span>
+          </div>
+          <div class="footer-social">
+            <a href="https://github.com/Velvet-Touch-dev/NoSafeWord-Android" class="social-link">
+              <span class="material-icons">code</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
