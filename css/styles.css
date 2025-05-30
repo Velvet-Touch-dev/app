@@ -736,11 +736,17 @@ body {
   border-radius: var(--md-radius-2xl);
   background: var(--md-surface);
   box-shadow: var(--md-shadow-xl);
+  padding-bottom: var(--md-space-10); /* Add padding for dots */
 }
 
 .screenshot-item {
   display: none;
-  padding: var(--md-space-8);
+  /* Original padding: var(--md-space-8); */
+  padding-top: var(--md-space-8);
+  padding-bottom: var(--md-space-8);
+  /* Adjusted padding for desktop to accommodate arrows */
+  padding-left: calc(var(--md-space-4) + 44px + var(--md-space-6)); /* 1rem edge offset + 44px arrow + 1.5rem buffer */
+  padding-right: calc(var(--md-space-4) + 44px + var(--md-space-6));/* 1rem edge offset + 44px arrow + 1.5rem buffer */
 }
 
 .screenshot-item.active {
@@ -854,33 +860,92 @@ body {
   justify-content: center;
   gap: var(--md-space-4);
   padding: var(--md-space-6);
+  /* This rule is unused as .screenshot-navigation is not in HTML. Removing specific paddings. */
 }
 
+@media (max-width: 767px) {
+  .screenshot-item {
+    /* Mobile padding: original var(--md-space-4) from general mobile opts, plus specific adjustments if needed */
+    padding-top: var(--md-space-4);
+    padding-bottom: var(--md-space-4);
+    padding-left: var(--md-space-2); /* Reduced side padding for mobile if arrows are smaller/closer */
+    padding-right: var(--md-space-2);
+  }
+}
+
+
 .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
   border: none;
-  background: var(--md-surface-container);
-  color: var(--md-on-surface);
+  background: var(--md-primary-container); /* Purple background by default */
+  color: var(--md-primary);             /* Light purple icon by default */
   border-radius: var(--md-radius-full);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px); /* Keep if desired, ensure primary-container is opaque enough */
 }
 
 .nav-btn:hover {
-  background: var(--md-primary);
-  color: white;
-  transform: scale(1.1);
+  background: var(--md-primary);         /* Light purple background on hover */
+  color: var(--md-on-primary);           /* Darker icon on hover */
+  transform: translateY(-50%) scale(1.1); /* Keep translateY for centering */
 }
 
+.nav-prev {
+  left: var(--md-space-4);
+}
+
+.nav-next {
+  right: var(--md-space-4);
+}
+
+/* Adjust nav buttons for mobile to be less intrusive */
+@media (max-width: 767px) {
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--md-primary-container); /* Consistent purple theme for mobile */
+    color: var(--md-primary);
+  }
+  .nav-prev {
+    left: var(--md-space-2);
+  }
+  .nav-next {
+    right: var(--md-space-2);
+  }
+  .screenshot-content { /* Ensure content doesn't overlap buttons on mobile */
+    /* This padding might need to be on .screenshot-item for mobile instead, or adjusted */
+    /* Considering arrows are 36px + 8px offset = 44px. Content needs to clear this. */
+    /* .screenshot-item already has L/R padding of var(--md-space-2) = 8px. */
+    /* So, screenshot-content itself might not need extra padding if item padding is enough. */
+    /* Let's remove this for now and rely on .screenshot-item padding. */
+    /* padding-left: 30px; */
+    /* padding-right: 30px; */
+  }
+}
+
+
 .screenshot-dots {
+  position: absolute;
+  bottom: var(--md-space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
   display: flex;
   gap: var(--md-space-2);
   justify-content: center;
   flex-wrap: wrap;
+  padding: var(--md-space-2);
+  background-color: rgba(26, 26, 26, 0.5); /* Updated RGB from --md-surface */
+  border-radius: var(--md-radius-md);
 }
 
 .dot {
@@ -1280,10 +1345,16 @@ body {
   
   .screenshot-item {
     padding: var(--md-space-4);
+    /* Reset padding for mobile if specific adjustments were made above for desktop */
+    padding-left: var(--md-space-4); 
+    padding-right: var(--md-space-4);
   }
   
   .screenshot-content {
     gap: var(--md-space-4);
+    /* Reset padding for mobile if specific adjustments were made above for desktop */
+    padding-left: 0; 
+    padding-right: 0;
   }
   
   .hero-stats {
