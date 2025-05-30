@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const prevBtn = document.querySelector('.nav-prev');
   const nextBtn = document.querySelector('.nav-next');
   let currentSlide = 0;
+  let autoPlayInterval;
+  let userInteracting = false;
 
   function showSlide(index) {
     // Hide all slides
@@ -68,32 +70,68 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(prevIndex);
   }
 
+  function startAutoPlay() {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+    autoPlayInterval = setInterval(() => {
+      if (!userInteracting) {
+        nextSlide();
+      }
+    }, 6000);
+  }
+
+  function pauseAutoPlay() {
+    userInteracting = true;
+    clearInterval(autoPlayInterval);
+  }
+
+  function resumeAutoPlay() {
+    userInteracting = false;
+    // Resume after a short delay to prevent immediate conflicts
+    setTimeout(() => {
+      if (!userInteracting) {
+        startAutoPlay();
+      }
+    }, 2000);
+  }
+
   // Navigation buttons
   if (nextBtn) {
-    nextBtn.addEventListener('click', nextSlide);
+    nextBtn.addEventListener('click', () => {
+      pauseAutoPlay();
+      nextSlide();
+      resumeAutoPlay();
+    });
   }
 
   if (prevBtn) {
-    prevBtn.addEventListener('click', prevSlide);
+    prevBtn.addEventListener('click', () => {
+      pauseAutoPlay();
+      prevSlide();
+      resumeAutoPlay();
+    });
   }
 
   // Dot navigation
   dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => showSlide(index));
+    dot.addEventListener('click', () => {
+      pauseAutoPlay();
+      showSlide(index);
+      resumeAutoPlay();
+    });
   });
 
-  // Auto-play carousel
-  let autoPlayInterval = setInterval(nextSlide, 5000);
+  // Start auto-play
+  startAutoPlay();
 
   // Pause auto-play on hover
   const screenshotCarousel = document.getElementById('screenshotCarousel');
   if (screenshotCarousel) {
     screenshotCarousel.addEventListener('mouseenter', () => {
-      clearInterval(autoPlayInterval);
+      pauseAutoPlay();
     });
 
     screenshotCarousel.addEventListener('mouseleave', () => {
-      autoPlayInterval = setInterval(nextSlide, 5000);
+      resumeAutoPlay();
     });
   }
 
@@ -117,11 +155,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const diff = touchStartX - touchEndX;
 
     if (Math.abs(diff) > swipeThreshold) {
+      pauseAutoPlay();
       if (diff > 0) {
         nextSlide();
       } else {
         prevSlide();
       }
+      resumeAutoPlay();
     }
   }
 
@@ -223,9 +263,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Keyboard navigation for carousel
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
+      pauseAutoPlay();
       prevSlide();
+      resumeAutoPlay();
     } else if (e.key === 'ArrowRight') {
+      pauseAutoPlay();
       nextSlide();
+      resumeAutoPlay();
     }
   });
 
