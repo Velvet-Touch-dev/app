@@ -186,6 +186,11 @@ body {
   font-size: var(--md-text-2xl);
 }
 
+.logo-svg {
+  width: 32px;
+  height: 32px;
+}
+
 .nav-logo .material-icons,
 .footer-logo .material-icons {
   font-size: var(--md-text-2xl);
